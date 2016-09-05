@@ -15,6 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', routes);
 app.use('/users', users); 
 
-var port = process.env.PORT || '8000';
+var port = process.env.PORT || '4000';
 
 app.listen(port);

@@ -35,7 +35,7 @@ router.param('post', function(req, res, next, id) {
 
 router.post('/posts/:post/comments', function(req, res, next) {
   var comment = new Comment(req.body);
-  comment.post = req.post;
+  comment.post = req.post._id;
 
   comment.save(function(err, comment){
     if(err){ return next(err); }

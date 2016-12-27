@@ -24,9 +24,7 @@ router.post('/posts', function(req, res, next) {
 }); 
 
 router.param('post', function(req, res, next, id) {
-  var query = Post.findById(id);
-
-  query.exec(function (err, post){
+  Post.findById(id, function (err, post){
     if (err) { return next(err); }
     if (!post) { return next(new Error('can\'t find post')); }
 

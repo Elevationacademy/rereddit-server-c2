@@ -57,4 +57,21 @@ router.get('/posts/:post', function(req, res, next) {
   });
 });
 
+router.put('/posts/:post/upvote', function(req, res, next) {
+  req.post.upvote();
+
+
+  req.post.save(function(err, post) {
+    res.json(post);
+  });
+});
+
+router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
+  req.comment.upvote();
+
+  req.comment.save(function(err, comment) {
+    res.json(comment);
+  });
+});
+
 module.exports = router;
